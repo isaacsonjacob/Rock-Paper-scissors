@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
 </head>
 <body>
     <script>
@@ -80,13 +81,13 @@
             
             
             if (score > 0){
-            console.log (`You Win`)
+            console.log (`You Win. The score is: ${score} Nice job tryhard.`)
             }
             else if (score < 0){
-                console.log (`You Lose`)
+                console.log (`You Lose. The score is: ${score} That sucks for you.`)
             }
-            else{
-                console.log(`You Tied`)
+            else if (score == 0){
+                console.log(`You Tied. The score is: ${score} So close.`)
             }
         }
         gamePlay();
