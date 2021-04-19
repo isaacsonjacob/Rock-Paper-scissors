@@ -8,8 +8,88 @@
 </head>
 <body>
     <script>
-        console.log();
-        function computerPlay();
+        function computerPlay(){
+            let randNum = Math.floor(Math.random()*3);
+            if (randNum==0){
+                return "Rock";
+            }
+            else if (randNum==1){
+               return "Paper";
+            }
+            else if (randNum==2){
+                return "Scissors";
+            }
+            
+        }
+       
+         
+        function singleRound(playerChoice,computerChoice){
+            if (playerChoice==computerChoice){
+                console.log (`You tied. You chose ${playerChoice}, the computer chose ${computerChoice}.`);
+                return 0;
+            }  
+            else if (playerChoice == "Rock" && computerChoice == "Paper"){
+                console.log (`You lost. You chose ${playerChoice}, the computer chose ${computerChoice}.`);
+                return -1;
+            }
+            else if (playerChoice == "Rock" && computerChoice == "Scissors"){
+                console.log (`You win. You chose ${playerChoice}, the computer chose ${computerChoice}.`);
+                return 1;
+            }
+            else if (playerChoice == "Paper" && computerChoice == "Scissors"){
+                console.log (`You lost. You chose ${playerChoice}, the computer chose ${computerChoice}.`);
+                return -1;
+            }
+            else if (playerChoice == "Paper" && computerChoice == "Rock"){
+                console.log (`You win. You chose ${playerChoice}, the computer chose ${computerChoice}.`); 
+                return 1;
+            }
+            else if (playerChoice == "Scissors" && computerChoice == "Rock"){
+                console.log (`You lost. You chose ${playerChoice}, the computer chose ${computerChoice}.`);
+                return -1;
+            }
+            else if (playerChoice == "Scissors" && computerChoice == "Paper"){
+                console.log (`You win. You chose ${playerChoice}, the computer chose ${computerChoice}.`);
+                return 1;
+            }
+        }
+
+        function gamePlay(){
+            let score = 0;
+
+            let playerChoice = prompt(`Select Rock, Paper, or Scissors`)
+            let computerChoice = computerPlay();
+            score += singleRound(playerChoice,computerChoice)
+
+            playerChoice = prompt(`Select Rock, Paper, or Scissors`)
+            computerChoice = computerPlay();
+            score += singleRound(playerChoice,computerChoice)
+
+            playerChoice = prompt(`Select Rock, Paper, or Scissors`)
+            computerChoice = computerPlay();
+            score += singleRound(playerChoice,computerChoice)
+
+            playerChoice = prompt(`Select Rock, Paper, or Scissors`)
+            computerChoice = computerPlay();
+            score += singleRound(playerChoice,computerChoice)
+
+            playerChoice = prompt(`Select Rock, Paper, or Scissors`)
+            computerChoice = computerPlay();
+            score += singleRound(playerChoice,computerChoice)
+
+            
+            
+            if (score > 0){
+            console.log (`You Win`)
+            }
+            else if (score < 0){
+                console.log (`You Lose`)
+            }
+            else{
+                console.log(`You Tied`)
+            }
+        }
+        gamePlay();
     </script>
 </body>
 </html>
